@@ -45,13 +45,32 @@ export const DrawingCanvas = () => {
   };
 
   return (
-    <div>
+    <div className='flex flex-col items-center gap-4'>
       {/* 도형 추가 및 그리기 모드 제어를 위한 버튼들 */}
-      <button onClick={onAddCircle}>원 추가</button>
-      <button onClick={onAddRectangle}>사각형 추가</button>
-      <button onClick={toggleDrawing}>그리기 모드 전환</button>
+      <div className='flex gap-2'>
+        <button
+          className='px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors'
+          onClick={onAddCircle}
+        >
+          원 추가
+        </button>
+        <button
+          className='px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors'
+          onClick={onAddRectangle}
+        >
+          사각형 추가
+        </button>
+        <button
+          className='px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors'
+          onClick={toggleDrawing}
+        >
+          그리기 모드 전환
+        </button>
+      </div>
       {/* FabricJS 캔버스 컴포넌트 */}
-      <FabricJSCanvas className='sample-canvas' onReady={onReady} />
+      <div className='border-2 border-gray-200 rounded-lg overflow-hidden'>
+        <FabricJSCanvas className='sample-canvas' onReady={onReady} />
+      </div>
     </div>
   );
 };
