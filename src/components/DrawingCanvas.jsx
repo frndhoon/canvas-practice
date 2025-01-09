@@ -1,7 +1,6 @@
 // fabricjs-react 라이브러리에서 필요한 컴포넌트와 훅을 가져옴
 import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
 import { useEffect } from 'react';
-// Fabric.js 라이브러리 전체를 fabric이라는 네임스페이스로 가져옴
 // React/브라우저 환경에서는 ES Modules 시스템을 사용하므로 '* as' 구문이 필요
 // (Node.js와 같은 CommonJS 환경에서는 import { fabric } from 'fabric' 형태로 사용)
 import * as fabric from 'fabric';
@@ -21,6 +20,10 @@ export const DrawingCanvas = () => {
       editor.canvas.freeDrawingBrush.width = 5;
       // 브러시 색상 설정
       editor.canvas.freeDrawingBrush.color = '#000000';
+
+      // 캔버스 크기와 배경색 설정
+      editor.canvas.setWidth(800);
+      editor.canvas.setHeight(600);
     }
   }, [editor]); // editor가 변경될 때마다 실행
 
